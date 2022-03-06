@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'SECRET_KEY_PLACEHOLDER'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 DEFAULT_LOGGING_LEVEL = "DEBUG" if DEBUG else "INFO"
 
 LOGGING = {
@@ -193,7 +193,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'crum.CurrentRequestUserMiddleware'
+    'crum.CurrentRequestUserMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -288,7 +289,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
    BASE_DIR / 'project/static',
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 print(BASE_DIR / 'project/static')
 # Media Folder Settings
 MEDIA_ROOT = BASE_DIR / 'media'
