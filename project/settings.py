@@ -286,9 +286,11 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
 STATIC_ROOT = BASE_DIR / 'static'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-   BASE_DIR / 'project/static',
-]
+# STATICFILES_DIRS = [
+#    BASE_DIR / 'project/static',
+# ]
+
+STATICFILES_DIRS = [path.join(BASE_DIR,'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 print(BASE_DIR / 'project/static')
 # Media Folder Settings
